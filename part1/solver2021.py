@@ -1,14 +1,13 @@
 #!/usr/local/bin/python3
 # solver2021.py : 2021 Sliding tile puzzle solver
 #
-# Code by: admysore-hdeshpa-machilla
+# Code by: name IU ID
 #
 # Based on skeleton code by D. Crandall, January 2021
 #
 
 import sys
 from heapq import *
-import math
 
 ROWS=4
 COLS=5
@@ -112,28 +111,15 @@ def is_goal(state):
 
 """
 def heuristic(state):
-heuristic function that returns cost of state, which is sum of euclidean distances and absolute difference
- of each element from its current position to its goal position in the canonical form .
+heuristic function that returns cost of state, which is sum of absolute differences of current position
+of element and its goal position calculated for each element in state
 """
 def heuristic(state):
     cost = 0
-    x=0
-    y=0
-    goalStateCoords=[]
-    for a in range(0,ROWS):
-        for b in range(0, COLS):
-            goalStateCoords.append([a,b])
     for i in range(0, len(state)):
-        a=goalStateCoords[state[i]-1][0]
-        b=goalStateCoords[state[i]-1][1]
-        eucl_dist=math.sqrt(((b-y)**2)+((a-x)**2))
-        cost+=eucl_dist+abs(state[i]-i+1)
-        if(y==COLS-1):
-            y=0
-            x+=1
-        else:
-            y=y+1
-    return cost
+        if(abs(state[i] -(i+1))!=0):
+            cost+=abs(state[i] -(i+1))
+    return cost/200
 
 """
 def returnMove(fromState,toState):
