@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 # solver2021.py : 2021 Sliding tile puzzle solver
 #
-# Code by: name IU ID
+# Code by: admysore-hdeshpa-machilla
 #
 # Based on skeleton code by D. Crandall, January 2021
 #
