@@ -1,3 +1,11 @@
+#!/usr/local/bin/python3
+# assign.py : Assign people to teams
+#
+# Code by: admysore-hdeshpa-machilla-a1
+#
+# Based on skeleton code by R. Shah and D. Crandall, January 2021
+#
+
 import sys
 from heapq import *
 import math
