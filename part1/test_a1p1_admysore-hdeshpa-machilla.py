@@ -114,24 +114,57 @@ def check_puzzle(mapX,path_corr):
     assert canonical_state == path_finder(mapX, path_found), "Canonical form doesn't match. Path found was wrong!"
 
 
+# def load_maps():
+#     maps=[]
+#     for name in ['test_case.txt']:
+#         with open(name,"r") as file:
+#             lines=file.read().splitlines()
+#             correct_path=lines[0]
+#             mapX=[[int(i) for i in line.split()] for line in lines[1:]]
+#             maps.append((mapX,correct_path))
+#     return maps
+
+time_ = 600
+
 def load_maps():
-    maps=[]
-    for name in ['test_case.txt']:
-        with open(name,"r") as file:
-            lines=file.read().splitlines()
-            correct_path=lines[0]
-            mapX=[[int(i) for i in line.split()] for line in lines[1:]]
-            maps.append((mapX,correct_path))
-    return maps
-
-
-time_ = 30
+  maps=[]
+  for name in ['board0.txt', 'board1.txt', 'board2.txt', 'board3.txt', 'board4.txt']: 
+    with open(name,"r") as file:
+      lines=file.read().splitlines()
+      correct_path=lines[0]
+      mapX=[[int(i) for i in line.split()] for line in lines[1:]]
+      maps.append((mapX,correct_path))
+  return maps
 
 @pytest.mark.timeout(time_)
-def test_puzzle_2021_case1():
-    maps=load_maps()
-    mapX,corr_path=maps[0]
-    check_puzzle(mapX,corr_path)
+def test_part1_case1():
+  maps=load_maps()
+  mapX,corr_path=maps[0]
+  check_puzzle(mapX,corr_path)
+
+@pytest.mark.timeout(time_)
+def test_part1_case2():
+  maps=load_maps()
+  mapX,corr_path=maps[1]
+  check_puzzle(mapX,corr_path)
+
+# @pytest.mark.timeout(time_)
+# def test_part1_case3():
+#   maps=load_maps()
+#   mapX,corr_path=maps[2]
+#   check_puzzle(mapX,corr_path)
+
+@pytest.mark.timeout(time_)
+def test_part1_case4():
+  maps=load_maps()
+  mapX,corr_path=maps[3]
+  check_puzzle(mapX,corr_path)
+
+@pytest.mark.timeout(time_)
+def test_part1_case5():
+  maps=load_maps()
+  mapX,corr_path=maps[4]
+  check_puzzle(mapX,corr_path)
 
 
 

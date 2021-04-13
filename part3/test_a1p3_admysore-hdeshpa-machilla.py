@@ -11,9 +11,10 @@ For final grading we will be using more complex test cases.
 import pytest
 import numpy as np
 import assign
-import time
 import signal
-time_ = 100
+import time
+time_ = 600
+
 
 def handler(signum, frame):
 	raise Exception("timeout")
@@ -27,36 +28,69 @@ def get_solution(test_file):
 		return results
 	return results
 
+
 def check_names(test_file,result):
 	names_ = [j for i in [i.split('-') for i in result[0]] for j in i]
+
 	names = set(names_)
 	with  open(test_file,'r') as f:
+		
 		original_names = set()
 		for i in f.readlines():
 			original_names.add(i.split()[0])
+	
 	return (original_names==names and len(names)==len(original_names))
 
 def check_solution(test_file,result,threshold = float('inf')):
-	assert len(result) != 0, "No solution yielded in {} seconds".format(str(time_))
+
+	assert len(result) != 0, "No solution found"
+
 	assert result[-1] >= 0, "Score cannot be negative" 
+
 	assert check_names(test_file,result) == True, 'Everyone should be assigned to a team'
-	assert type(result[1]) in (int,float), 'Cost should be of type int or float'
+
+	assert type(result[1]) in (int,float), 'TypeError'
+
 	assert result[1] <= threshold, 'The cost is incorrect, it could be better'
 
-def test_case_1():
+
+def test_part3_case_1():
 	signal.signal(signal.SIGALRM, handler)
 	signal.alarm(time_)
 	test_file = 'test1.txt'
-	check_solution(test_file,get_solution(test_file)[-1],10) 
+	check_solution(test_file,get_solution(test_file)[-1],10)
 
-def test_case_2():
+
+def test_part3_case_2():
 	signal.signal(signal.SIGALRM, handler)
 	signal.alarm(time_)
 	test_file = 'test2.txt'
-	check_solution(test_file,get_solution(test_file)[-1],15) 
+	check_solution(test_file,get_solution(test_file)[-1],15)
 
-def test_case_3():
+
+def test_part3_case_3():
 	signal.signal(signal.SIGALRM, handler)
 	signal.alarm(time_)
 	test_file = 'test3.txt'
 	check_solution(test_file,get_solution(test_file)[-1])  ## there is no threshold for this case. 
+
+
+def test_part3_case_4():
+	signal.signal(signal.SIGALRM, handler)
+	signal.alarm(time_)
+	test_file = 'test4.txt'
+	check_solution(test_file,get_solution(test_file)[-1],35)
+
+
+def test_part3_case_5():
+	signal.signal(signal.SIGALRM, handler)
+	signal.alarm(time_)
+	test_file = 'test5.txt'
+	check_solution(test_file,get_solution(test_file)[-1],23)
+
+def test_part3_case_6():
+	signal.signal(signal.SIGALRM, handler)
+	signal.alarm(time_)
+	test_file = 'test6.txt'
+	check_solution(test_file,get_solution(test_file)[-1])  ## there is no threshold for this case. 
+

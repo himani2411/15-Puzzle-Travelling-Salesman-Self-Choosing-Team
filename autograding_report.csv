@@ -1,0 +1,40 @@
+teamname,admysore-hdeshpa-machilla
+commit used,3300fb4070998aeebb91b52d263f5b58a8efdb5c
+commit date,2021-03-05 23:19:28
+test_part1_case1_points,0
+test_part1_case1_status,failed
+test_part1_case2_points,0
+test_part1_case2_status,failed
+test_part1_case4_points,0
+test_part1_case4_status,failed
+test_part1_case5_points,0
+test_part1_case5_status,failed
+Part1_Total,0
+test_part2_case1_points,8
+test_part2_case1_status,passed
+test_part2_case2_points,12
+test_part2_case2_status,passed
+test_part2_case3_points,0
+test_part2_case3_status,failed
+test_part2_case4_points,8
+test_part2_case4_status,passed
+test_part2_case5_points,0
+test_part2_case5_status,failed
+test_part2_extracredit_points,0
+test_part2_extracredit_status,failed
+Part2_Total,28
+test_part3_case_1_points,10
+test_part3_case_1_status,passed
+test_part3_case_2_points,10
+test_part3_case_2_status,passed
+test_part3_case_3_points,7.5
+test_part3_case_3_status,passed
+test_part3_case_4_points,7.5
+test_part3_case_4_status,passed
+test_part3_case_5_points,7.5
+test_part3_case_5_status,passed
+test_part3_case_6_points,7.5
+test_part3_case_6_status,passed
+Part3_Total,50.0
+Late,False
+Total Autograding,78.0
